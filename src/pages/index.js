@@ -1,5 +1,6 @@
 import * as React from "react"
 import Layout from "../components/navComponent"
+import {StaticImage} from 'gatsby-plugin-image'
 const pageStyles = {
   color: "#232129",
   padding: 96,
@@ -127,6 +128,16 @@ const IndexPage = () => {
   return (
     <Layout pageTitle="Home Page" >
       <p>This is the home page</p>
+      <StaticImage
+      src="../images/goffins.png"
+      placeholder="blurred"
+      width={600}
+      height={600}
+      formats={["auto", "webp", "avif"]}
+      alt="A Dog Image"
+      transformOptions={{ fit: "cover", cropFocus: "attention" }}
+      quality={90}
+    />
     </Layout>
   )
 }
