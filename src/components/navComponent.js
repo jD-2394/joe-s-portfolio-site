@@ -1,5 +1,10 @@
 import * as React from 'react'
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'gatsby'
+import 'bootstrap/dist/css/bootstrap.css';
 import { 
     container,
     heading,
@@ -11,14 +16,24 @@ import {
 const Layout = ({ pageTitle, children }) => {
   return (
     <div className={container}>
-      <nav>
-        <ul className={navLinks}>
-          <li className={navLinkItem}><Link to="/" className={navLinkText}>Home</Link></li>
-          <li className={navLinkItem}><Link to="/about" className={navLinkText}>About.Me</Link></li>
-          <li className={navLinkItem}><Link to="/experience" className={navLinkText}>Experience</Link></li>
-          <li className={navLinkItem}><Link to="/news" className={navLinkText}>News</Link></li>
-        </ul>
-      </nav>
+      <Container fluid>
+      <Navbar bg="primary" variant="dark" expand="lg" fixed="top" >
+        
+          <Navbar.Brand href="/">Joe's Site</Navbar.Brand>
+          <Navbar.Toggle aria-controls='basic-navbar-nav'/>
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className='me-auto justify-content-left' align>
+              <Nav.Link href="/" className='nav-links'>Home</Nav.Link>
+              <Nav.Link href="/about" className='nav-links'>About.Me</Nav.Link>
+              <Nav.Link href="/experience" className='nav-links'>Experience</Nav.Link>
+              <Nav.Link href="/news" className='nav-links'>News</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        
+      </Navbar >
+      </Container>
+        
+
       <main>
         <h1 className={heading}>{pageTitle}</h1>
         {children}
